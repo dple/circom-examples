@@ -39,8 +39,17 @@ template MerkleTreeChecker(levels) {
     component hashers[levels];
 
     for(var i = 0; i < levels; i++) {
-        
+        selectors[i] = DualMux();
+        selectors[i].in[0] <== i == 0 ? leaf : hashers[i - 1].hash;
+        selectors[i].in[1] <== pathElements[i];
+        selectors[i].s <== pathIndices[i];
+
+        hashers[i] = HashLeftRight();
+        hashers[i].left <== selectors[i].out[0];
+        hashers[i].right <== selectors[i].out[1];
     }
+
+    root === hashers[levels - 1].hash;
 }
 
 component main = MerkleTreeChecker(3);
