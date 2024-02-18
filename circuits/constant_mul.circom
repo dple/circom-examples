@@ -8,7 +8,7 @@ template constant_mul() {
 
     signal isEq <== IsEqual()([fiveA, a*5]);
 
-    1 === isEq.out;
+    1 === isEq;
 }
 
 component main {public [fiveA]} = constant_mul();
