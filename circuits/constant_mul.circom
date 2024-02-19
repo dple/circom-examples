@@ -2,13 +2,17 @@ pragma circom  2.0.0;
 
 include "../node_modules/circomlib/circuits/comparators.circom";
 
-template constant_mul() {
-    signal input a;
-    signal input fiveA;
+template constant_mul(n) {
+    signal input in;
+    signal output out;
+    signal inv;
 
-    signal isEq <== IsEqual()([fiveA, a*5]);
-
-    1 === isEq;
+    inv <-- 1/n;
+    
+    component ise = IsEqual();
+    ise.in[0] <== n*inv;
+    ise.in[1] <== 1;
+    out <== in*n;
 }
 
-component main {public [fiveA]} = constant_mul();
+component main = constant_mul(5);
