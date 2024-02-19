@@ -30,7 +30,8 @@ template ForcedEqual() {
     (1 - isz)*enabled === 0;
 }
 
-template LessThan() {
+template LessThan(n) {
+    assert(n <= 252);   // the size of the prime field operated
     
 }
 
