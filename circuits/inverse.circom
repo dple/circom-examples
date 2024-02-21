@@ -1,15 +1,16 @@
 pragma circom  2.1.6;
 
 template Inverse() {
-
     // Declaration of signals.
-    signal input _in;
-    signal output _out;
+    signal input in;
+    signal output out;
+    assert(in != 0);
 
     // Constraints.
-    signal inv <-- _in != 0? 1/_in : 0;
-    
-    _out <== inv;
+    signal inv <-- 1/in;
+
+    out <== inv;
+    1 === out*in;
 }
 
 component main = Inverse();

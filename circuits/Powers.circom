@@ -10,4 +10,4 @@ template Powers(nOuts) {
     }
 }
 
-component main = Powers(8);
+//component main = Powers(8);

@@ -3,14 +3,17 @@ pragma circom  2.0.0;
 include "../node_modules/circomlib/circuits/comparators.circom";
 
 template test() {
-    signal input enabled;
-    signal input in[2];
+    //signal input enabled;
+    signal input in;
+    signal output out;
 
-    component isz = IsZero();
+    out <== in*5;
+    signal inv <-- 1/5;
+    component ise = IsEqual();
+    ise.in[0] <== in;
+    ise.in[1] <== out * inv;
 
-    in[1] - in[0] ==> isz.in;
-
-    (1 - isz.out)*enabled === 0;
+    1 - ise.out === 0;
 }
 
 component main = test();

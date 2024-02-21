@@ -1,6 +1,6 @@
 pragma circom  2.0.0;
 
-include "../node_modules/circomlib/circuits/comparators.circom";
+include "comparators.circom";
 
 template Average(nInputs) {
     signal input inputs[nInputs];

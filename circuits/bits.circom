@@ -17,4 +17,4 @@ template N2b(n) {
     v === in;
 }
 
-component main = N2b(8);
+//component main = N2b(8);
