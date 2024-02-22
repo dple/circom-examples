@@ -1,6 +1,6 @@
 pragma circom  2.1.6;
 
-include "compare.circom";
+include "comparators.circom";
 
 template ListSorted(size, nInputs) {
 

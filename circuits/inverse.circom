@@ -1,5 +1,7 @@
 pragma circom  2.1.6;
 
+include "comparators.circom";
+
 template Inverse() {
     // Declaration of signals.
     signal input in;
@@ -9,8 +11,11 @@ template Inverse() {
     // Constraints.
     signal inv <-- 1/in;
 
+    component isz = IsEqual();
+    isz.in[0] <== 1;
+    isz.in[1] <== in*inv;
+    isz.out === 1;
     out <== inv;
-    1 === out*in;
 }
 
 component main = Inverse();

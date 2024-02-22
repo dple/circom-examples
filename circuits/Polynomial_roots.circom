@@ -19,10 +19,12 @@ template Poly_roots(d) {
 
         polyeval[j].x <== x[j];
         polyeval[j].res <== 0;
+        polyeval[j].out === 1;
         score += polyeval[j].out;
     }
     
-    out <== IsEqual()([score, d]);
+    out <-- score * 1/d;
+    out === 1;
 }
 
 component main = Poly_roots(5);

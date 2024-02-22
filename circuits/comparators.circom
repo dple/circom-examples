@@ -13,12 +13,34 @@ template IsZero() {
     out * in === 0;
 }
 
+template NonZero() {
+    signal input  in;
+    signal inv;
+    signal output out;
+
+    // Constrainst
+    inv <-- in != 0 ? 1 / in : 0;
+
+    out <== in * inv;
+    (1 - out) * in === 0;
+}
+
 template IsEqual() {
     signal input in[2];
     signal output out;
 
     // Constrainsts
     out <== IsZero()(in[0]- in[1]);
+}
+
+template NotEqual() {
+    signal input in[2];
+    signal output out; // if not equal, output 1, else output 0
+
+    // Constraints
+    signal ise <== IsEqual()([in[0], in[1]]);
+    out <== 1 - ise;
+    out*ise === 0;
 }
 
 template ForcedEqual() {
