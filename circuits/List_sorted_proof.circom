@@ -19,4 +19,4 @@ template ListSorted(size, nInputs) {
     out <== IsEqual()([score, nInputs - 2]);
 }
 
-component main = ListSorted(8, 5);
+//component main = ListSorted(8, 5);
