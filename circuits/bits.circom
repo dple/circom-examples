@@ -1,3 +1,6 @@
+/**
+ *  The circuits are copied from bitify.circom in circomlib
+ */
 pragma circom  2.0.0;
 
 template N2b(n) {

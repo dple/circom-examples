@@ -11,6 +11,7 @@ template Add() {
     component ise = IsEqual();
     ise.in[0] <== out;
     ise.in[1] <== in[0] - in[1];
+    1 === ise.out;
 }
 
 component main = Add();

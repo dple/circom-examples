@@ -1,3 +1,7 @@
+/**
+ *  The circuits are copied from comparators.circom in circomlib
+ */
+
 pragma circom  2.0.0;
 
 include "bits.circom";
