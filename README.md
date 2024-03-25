@@ -1,4 +1,4 @@
 # Circom Examples
 
-This project implements some examples of Zero-Knowledge proof circuits with Circom.
+This repo contains implementations of some examples of Zero-Knowledge proof circuits with Circom.
 
