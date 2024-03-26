@@ -12,7 +12,7 @@ template multivariate() {
     signal v2 <== y*y;
     signal v3 <== 3*x * v1;
     signal v4 <== 5*v1*v2;
-    out - 11 - v3 + v4 + 21*y <== 7*x*v2;
+    out <== 7*x*v2 + v3 - v4 - 21*y + 11;
 }
 
 component main = multivariate();
